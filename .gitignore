@@ -54,3 +54,12 @@ ProviderSyncAI/
 *.pyc
 *.pyo
 
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
