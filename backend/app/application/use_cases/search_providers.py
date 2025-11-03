@@ -51,13 +51,18 @@ async def execute(query: SearchQuery) -> ProviderSearchResult:
 
         website = None
         if display_name:
-            web_results = await searxng_client.search(
-                f"{display_name} {address.get('city','')} {address.get('state','')}",
-                categories="general",
-                num_results=3,
-            )
-            if web_results:
-                website = web_results[0].get("url")
+            try:
+                web_results = await searxng_client.search(
+                    f"{display_name} {address.get('city','')} {address.get('state','')}",
+                    categories="general",
+                    num_results=3,
+                )
+                if web_results:
+                    website = web_results[0].get("url")
+            except Exception as e:
+                # Web enrichment is optional, log but don't fail the request
+                logger.debug("web_enrichment_failed", provider=display_name, error=str(e))
+                website = None
 
         providers.append(
             Provider(

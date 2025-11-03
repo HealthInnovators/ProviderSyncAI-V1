@@ -11,4 +11,19 @@ structlog==24.1.0
 aiocache==0.12.2
 pytest==8.3.3
 respx==0.21.1
+sqlalchemy==2.0.36
+alembic==1.14.0
+aiosqlite==0.20.0
+pdfplumber==0.11.0
+pypdf==4.3.1
+pillow==10.4.0
+beautifulsoup4==4.12.3
+lxml==5.3.0
+selenium==4.27.1
+jinja2==3.1.4
+email-validator==2.2.0
+aiofiles==24.1.0
+pandas==2.2.3
+numpy==1.26.4
+python-multipart==0.0.12
 
